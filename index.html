@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        * {
+            font-size: 64px;
+        }
+        
+        body {
+            margin-top: 128px;
+        }
+        </style>
+    </head>
+<body>
+<div>Output: <span id="output"></span></div>
+<div>From: <span id="from"></span></div>
+<button  id="bm">Send a Broadcast Message</button>
+<div>Peers: <span id="peers"></span></div>
+<script>
+    var out = document.getElementById('output');
+    var from = document.getElementById('from');
+    var bm = document.getElementById('bm');
+    var p = document.getElementById('peers');
+    
+    wax.on(wax.privateMessage, function(info) {
+        out.innerText = info.message;
+        from.innerText = info.peer;
+    });
+    
+    wax.on(wax.broadcastMessage, function(info) {
+        out.innerText = info.message;
+        from.innerText = info.peer;
+    });
+    
+    wax.on(wax.connection, function(peer) {
+        peers[peer.id] = peer;
+        p.innerText = peers;
+    });
+    
+    wax.on(wax.disconnection, function(peer) {
+        p.innerText = peers;
+    });
+    
+    bm.onclick = function() {
+        wax.sendBroadcastMessage("HELLO WORLD");
+    }
+    
+    wax.sendBroadcastMessage("HELLO WORLD");
+    out.innerText = "xxxx";
+</script>
+</body>
+</html>
