@@ -7,18 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		960CD4921A686E9300619C0C /* www in Resources */ = {isa = PBXBuildFile; fileRef = 960CD4911A686E9300619C0C /* www */; };
+		960CD49A1A68732100619C0C /* lib.js in Resources */ = {isa = PBXBuildFile; fileRef = 960CD4991A68732100619C0C /* lib.js */; };
+		96A7BFB01A66029800E430BA /* PeerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BF1C971A62E991006FE895 /* PeerKit.framework */; };
+		96A7BFB11A66029800E430BA /* PeerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96BF1C971A62E991006FE895 /* PeerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96BF1C661A62DE8E006FE895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BF1C651A62DE8E006FE895 /* AppDelegate.swift */; };
 		96BF1C681A62DE8E006FE895 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BF1C671A62DE8E006FE895 /* ViewController.swift */; };
 		96BF1C6B1A62DE8E006FE895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96BF1C691A62DE8E006FE895 /* Main.storyboard */; };
 		96BF1C6D1A62DE8E006FE895 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96BF1C6C1A62DE8E006FE895 /* Images.xcassets */; };
 		96BF1C701A62DE8E006FE895 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96BF1C6E1A62DE8E006FE895 /* LaunchScreen.xib */; };
 		96BF1C7C1A62DE8E006FE895 /* WaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BF1C7B1A62DE8E006FE895 /* WaxTests.swift */; };
-		96BF1C9A1A62E99E006FE895 /* PeerKit.xcodeproj in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BF1C911A62E991006FE895 /* PeerKit.xcodeproj */; };
-		96BF1CA01A62F5FE006FE895 /* lib.js in Resources */ = {isa = PBXBuildFile; fileRef = 96BF1C9F1A62F5FE006FE895 /* lib.js */; };
-		96F79F4C1A65AF26000C1EDA /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 96F79F4B1A65AF26000C1EDA /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		96A7BFAD1A66028900E430BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96BF1C911A62E991006FE895 /* PeerKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E89FD6BF1A0C3CDC00C2FEF7;
+			remoteInfo = PeerKit;
+		};
+		96A7BFB21A66029800E430BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96BF1C911A62E991006FE895 /* PeerKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E89FD6BF1A0C3CDC00C2FEF7;
+			remoteInfo = PeerKit;
+		};
 		96BF1C761A62DE8E006FE895 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 96BF1C581A62DE8E006FE895 /* Project object */;
@@ -40,16 +55,25 @@
 			remoteGlobalIDString = E89FD6CB1A0C3CDC00C2FEF7;
 			remoteInfo = PeerKitTests;
 		};
-		96BF1C9D1A62EA46006FE895 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96BF1C911A62E991006FE895 /* PeerKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = E89FD6BF1A0C3CDC00C2FEF7;
-			remoteInfo = PeerKit;
-		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		96A7BFB41A66029800E430BA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				96A7BFB11A66029800E430BA /* PeerKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		960CD4911A686E9300619C0C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = Wax/www; sourceTree = "<group>"; };
+		960CD4991A68732100619C0C /* lib.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lib.js; sourceTree = "<group>"; };
 		96BF1C601A62DE8E006FE895 /* Wax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96BF1C641A62DE8E006FE895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96BF1C651A62DE8E006FE895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,8 +85,6 @@
 		96BF1C7A1A62DE8E006FE895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96BF1C7B1A62DE8E006FE895 /* WaxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxTests.swift; sourceTree = "<group>"; };
 		96BF1C911A62E991006FE895 /* PeerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PeerKit.xcodeproj; path = Vendor/PeerKit/PeerKit.xcodeproj; sourceTree = "<group>"; };
-		96BF1C9F1A62F5FE006FE895 /* lib.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lib.js; sourceTree = "<group>"; };
-		96F79F4B1A65AF26000C1EDA /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = ../index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96BF1C9A1A62E99E006FE895 /* PeerKit.xcodeproj in Frameworks */,
+				96A7BFB01A66029800E430BA /* PeerKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +111,7 @@
 			children = (
 				96BF1C911A62E991006FE895 /* PeerKit.xcodeproj */,
 				96BF1C621A62DE8E006FE895 /* Wax */,
+				960CD4911A686E9300619C0C /* www */,
 				96BF1C781A62DE8E006FE895 /* WaxTests */,
 				96BF1C611A62DE8E006FE895 /* Products */,
 			);
@@ -106,14 +129,13 @@
 		96BF1C621A62DE8E006FE895 /* Wax */ = {
 			isa = PBXGroup;
 			children = (
+				960CD4991A68732100619C0C /* lib.js */,
 				96BF1C651A62DE8E006FE895 /* AppDelegate.swift */,
 				96BF1C671A62DE8E006FE895 /* ViewController.swift */,
 				96BF1C691A62DE8E006FE895 /* Main.storyboard */,
 				96BF1C6C1A62DE8E006FE895 /* Images.xcassets */,
 				96BF1C6E1A62DE8E006FE895 /* LaunchScreen.xib */,
 				96BF1C631A62DE8E006FE895 /* Supporting Files */,
-				96BF1C9F1A62F5FE006FE895 /* lib.js */,
-				96F79F4B1A65AF26000C1EDA /* index.html */,
 			);
 			path = Wax;
 			sourceTree = "<group>";
@@ -162,11 +184,13 @@
 				96BF1C5C1A62DE8E006FE895 /* Sources */,
 				96BF1C5D1A62DE8E006FE895 /* Frameworks */,
 				96BF1C5E1A62DE8E006FE895 /* Resources */,
+				96A7BFB41A66029800E430BA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				96BF1C9E1A62EA46006FE895 /* PBXTargetDependency */,
+				96A7BFAE1A66028900E430BA /* PBXTargetDependency */,
+				96A7BFB31A66029800E430BA /* PBXTargetDependency */,
 			);
 			name = Wax;
 			productName = Wax;
@@ -257,8 +281,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96F79F4C1A65AF26000C1EDA /* index.html in Resources */,
-				96BF1CA01A62F5FE006FE895 /* lib.js in Resources */,
+				960CD49A1A68732100619C0C /* lib.js in Resources */,
+				960CD4921A686E9300619C0C /* www in Resources */,
 				96BF1C6B1A62DE8E006FE895 /* Main.storyboard in Resources */,
 				96BF1C701A62DE8E006FE895 /* LaunchScreen.xib in Resources */,
 				96BF1C6D1A62DE8E006FE895 /* Images.xcassets in Resources */,
@@ -295,15 +319,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		96A7BFAE1A66028900E430BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PeerKit;
+			targetProxy = 96A7BFAD1A66028900E430BA /* PBXContainerItemProxy */;
+		};
+		96A7BFB31A66029800E430BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PeerKit;
+			targetProxy = 96A7BFB21A66029800E430BA /* PBXContainerItemProxy */;
+		};
 		96BF1C771A62DE8E006FE895 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 96BF1C5F1A62DE8E006FE895 /* Wax */;
 			targetProxy = 96BF1C761A62DE8E006FE895 /* PBXContainerItemProxy */;
-		};
-		96BF1C9E1A62EA46006FE895 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PeerKit;
-			targetProxy = 96BF1C9D1A62EA46006FE895 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -411,9 +440,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Wax/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -422,9 +454,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Wax/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

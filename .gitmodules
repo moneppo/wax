@@ -1,0 +1,6 @@
+[submodule "Vendor/PeerKit"]
+	path = Vendor/PeerKit
+	url = https://github.com/jpsim/PeerKit.git
+[submodule "PeerKit"]
+	path = PeerKit
+	url = https://github.com/jpsim/PeerKit.git

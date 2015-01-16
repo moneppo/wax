@@ -20,7 +20,7 @@ enum Event: String {
     Request = "REQ"
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet var containerView : UIView! = nil
     var webView: WKWebView?
@@ -41,22 +41,39 @@ class ViewController: UIViewController {
     func onDisconnect(run: PeerBlock?) {
         PeerKit.onDisconnect = run
     }
+    
+    func webView(webView: WKWebView!, didFinishNavigation navigation: WKNavigation!) {
+        println("WebView content loaded.")
+    }
+    
+    func webView(webView: WKWebView!, didFailNavigation navigation: WKNavigation!) {
+        println("Something failed.")
+    }
+    
+    func webView(webView: WKWebView!, didFailProvisionalNavigation navigation: WKNavigation!) {
+        println("Something p failed.")
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Broken - waiting on fix, workaround below
+        //var indexPath = NSBundle.mainBundle().pathForResource("index", ofType: "html", inDirectory: "www")
         
-        var url = NSURL(string:"http://www.kinderas.com/")
-        //var req = NSURLRequest(URL:url!)
-        //self.webView!.loadRequest(req)
+        let path = copyBundleWWWFolder()
+        let indexPath = path.stringByAppendingPathComponent("index.html")
+
+        let url = NSURL(fileURLWithPath: indexPath)
+        let req = NSURLRequest(URL:url!)
+        self.webView!.loadRequest(req)
         
-        let path = NSBundle.mainBundle().pathForResource("index", ofType: "html")
-        let source = String(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: nil)
-        self.webView!.loadHTMLString(source!, baseURL: url)
+        
         PeerKit.transceive("com-moneppo-Wax")
 
         setupEventHandlers()
     }
+    
     
     func setupEventHandlers() {
         onEvent(.PrivateMessage) { peer, object in
@@ -119,6 +136,7 @@ class ViewController: UIViewController {
         class PrivateMessageHandler: NSObject, WKScriptMessageHandler {
             func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
                 PeerKit.sendEvent(Event.PrivateMessage.rawValue, object: message.body)
+                NSLog("Message received")
             }
         }
         
@@ -126,6 +144,7 @@ class ViewController: UIViewController {
         class BroadcastMessageHandler: NSObject, WKScriptMessageHandler {
             func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
                 PeerKit.sendEvent(Event.BroadcastMessage.rawValue, object: message.body)
+                NSLog("Message received")
             }
         }
         
@@ -133,11 +152,9 @@ class ViewController: UIViewController {
             func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
                 let url = message.body as String
                 // Do nothing for now
-                NSLog("Message received");
+                NSLog("Message received")
             }
         }
-        
-        NSLog("Configuring everything...");
         
         let userContentController = WKUserContentController()
         let pmHandler = PrivateMessageHandler()
@@ -160,9 +177,32 @@ class ViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-    
         self.webView = WKWebView(frame: self.view.bounds, configuration: initConfiguration())
+        self.webView!.navigationDelegate = self
         self.view = self.webView
+    }
+    
+    func copyBundleWWWFolder() -> String {
+        let tmpDir = NSURL(fileURLWithPath:NSTemporaryDirectory(), isDirectory:true)
+        let id = NSUUID().UUIDString
+        let indexPath = NSBundle.mainBundle().pathForResource("index", ofType: "html", inDirectory: "www")
+        let path = indexPath!.stringByDeletingLastPathComponent
+        let fm = NSFileManager.defaultManager()
+        
+        let newPath = tmpDir!.path!.stringByAppendingPathComponent(id)
+        var error : NSError?
+        
+        fm.createDirectoryAtPath(newPath, withIntermediateDirectories: true, attributes: nil, error: &error)
+        if let actualError = error {
+            println("An Error Occurred: \(actualError)")
+        }
+        
+        fm.copyItemAtPath(path, toPath: newPath.stringByAppendingPathComponent("www"),  error: &error)
+        if let actualError = error {
+            println("An Error Occurred: \(actualError)")
+        }
+    
+        return newPath.stringByAppendingPathComponent("www");
     }
 }
 

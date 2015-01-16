@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D64F52A8-B7E8-40F3-9D68-54FC1BC7D20A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Wax</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F4969C25667B1DA9EA86B653D625CBEB60F4B60B</key>
+		<string>https://github.com/moneppo/wax.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Wax.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F4969C25667B1DA9EA86B653D625CBEB60F4B60B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/moneppo/wax.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F4969C25667B1DA9EA86B653D625CBEB60F4B60B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F4969C25667B1DA9EA86B653D625CBEB60F4B60B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Wax</string>
+		</dict>
+	</array>
+</dict>
+</plist>
