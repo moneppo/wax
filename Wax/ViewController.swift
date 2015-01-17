@@ -79,28 +79,39 @@ class ViewController: UIViewController, WKNavigationDelegate {
         onEvent(.PrivateMessage) { peer, object in
             let message = object as String
             let peerName = peer.displayName!
-            let action = "privateMessage"
-            let code = "wax.trigger(\(action), {message:'\(message)\', peer:'\(peerName)'});";
+            let action = "wax.privateMessage"
+            let code = "wax.trigger(\(action), {message:\"\(message)\", peer:\"\(peerName)\"});";
             self.webView?.evaluateJavaScript(code) { object, error in
+                if (error != nil) {
+                    NSLog(error.debugDescription)
+                }
             }
         }
         
         onEvent(.BroadcastMessage) { peer, object in
             let message = object as String
             let peerName = peer.displayName!
-            let action = "broadcastMessage"
-            let code = "wax.trigger(\(action), {message:'\(message)\', peer:'\(peerName)'});";
+            let action = "wax.broadcastMessage"
+            let code = "wax.trigger(\(action), {message:\"\(message)\", peer:\"\(peerName)\"});";
             self.webView?.evaluateJavaScript(code) { object, error in
+                if (error != nil) {
+                    NSLog(error.debugDescription)
+                }
             }
         }
         
         onConnect() { peer in
+            NSLog(peer.displayName!)
             let peerName = peer.displayName!
-            let action = "connection"
+            let action = "wax.connection"
             let uuid = NSUUID().UUIDString
-            let code = "wax.trigger(\(action), {name:'\(peerName)', id:'\(uuid)'});";
+            let code = "wax.trigger(\(action), {name:\"\(peerName)\", id:\"\(uuid)\"});";
+            NSLog(code)
             self.uuids[uuid] = peer
-            self.webView?.evaluateJavaScript(code) { object, error in
+            self.webView!.evaluateJavaScript(code) { object, error in
+                if (error != nil) {
+                    NSLog(error.debugDescription)
+                }
             }
         }
         
@@ -109,11 +120,14 @@ class ViewController: UIViewController, WKNavigationDelegate {
             let peerName = peer.displayName!
             for (uuid, possiblePeer) in self.uuids {
                 if (peer == possiblePeer) {
-                    let action = "disconnect"
+                    let action = "wax.disconnect"
                     let peerName = peer.displayName!
-                    let code = "wax.trigger(\(action), {name:'\(peerName)', id:'\(uuid)'});";
+                    let code = "wax.trigger(\(action), {name:\"\(peerName)\", id:\"\(uuid)\"});";
                     self.uuids[uuid] = nil
                     self.webView?.evaluateJavaScript(code) { object, error in
+                        if (error != nil) {
+                            NSLog(error.debugDescription)
+                        }
                     }
                     break
                 }

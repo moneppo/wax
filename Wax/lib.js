@@ -12,7 +12,11 @@ var wax;
         document.removeEventListener('pollen:' + event, callback, false);
     },
     trigger: function(event, info) {
-        document.dispatchEvent(new CustomEvent('pollen:' + event, info));
+        var e = new CustomEvent('pollen:' + event);
+        for (var i in info) {
+            e[i] = info[i];
+        }
+        document.dispatchEvent(e);
     },
     sendPrivateMessage: function(peer, message) {
         window.webkit.messageHandlers.privateMessage.postMessage({peer: peer, message:message});
@@ -40,12 +44,12 @@ var wax;
  
  Object.freeze(wax);
 
- wax.on(wax.connection, function(peer) {
-   peers[peer.id] = peer;
+ wax.on(wax.connection, function(e) {
+   peers[e.id] = e.name;
  });
  
- wax.on(wax.disconnection, function(peer) {
-   delete peers[peer.id];
+ wax.on(wax.disconnection, function(e) {
+   delete peers[e.id];
  });
  
  })();

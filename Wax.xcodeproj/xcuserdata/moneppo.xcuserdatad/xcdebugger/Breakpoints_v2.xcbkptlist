@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Wax/ViewController.swift"
-            timestampString = "443138627.08983"
+            timestampString = "443208602.073556"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "userContentController(_:didReceiveScriptMessage:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Wax/ViewController.swift"
-            timestampString = "443138627.08983"
+            timestampString = "443208602.073556"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "userContentController(_:didReceiveScriptMessage:)"
             landmarkType = "5">
          </BreakpointContent>

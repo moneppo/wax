@@ -24,23 +24,22 @@
     var bm = document.getElementById('bm');
     var p = document.getElementById('peers');
     
-    wax.on(wax.privateMessage, function(info) {
-        out.innerText = info.message;
-        from.innerText = info.peer;
+    wax.on(wax.privateMessage, function(e) {
+        out.innerText = e.message;
+        from.innerText = e.peer;
     });
     
-    wax.on(wax.broadcastMessage, function(info) {
-        out.innerText = info.message;
-        from.innerText = info.peer;
+    wax.on(wax.broadcastMessage, function(e) {
+        out.innerText = e.message;
+        from.innerText = e.peer;
     });
     
     wax.on(wax.connection, function(peer) {
-        peers[peer.id] = peer;
-        p.innerText = peers;
+        p.innerText = wax.peers();
     });
     
     wax.on(wax.disconnection, function(peer) {
-        p.innerText = peers;
+        p.innerText = wax.peers();
     });
     
     bm.onclick = function() {
